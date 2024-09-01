@@ -5,7 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageProduct{	
+		PageUtility pageutility=new PageUtility();
 		WebDriver driver;
 		public ManageProduct(WebDriver driver)	{
 			this.driver=driver;
@@ -19,25 +22,31 @@ public class ManageProduct{
 			@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alertdismissable;
 			
 			public void enterUsernameOnUsernameField(String username) {
-				usernameField.sendKeys(username);
+				//usernameField.sendKeys(username);
+				pageutility.enterValueIntoElement(usernameField, username);
 				
 				 
 			}
 			
 			public void enterPasswordOnPasswordField(String password) {
-				passwordField.sendKeys(password);
+				//passwordField.sendKeys(password);
+				pageutility.enterValueIntoElement(passwordField, password);
 				
 			}
 			
 			public void clickOnSignInButton() {
-				loginButton.click();
-				
+				pageutility.clickOnAnElement(loginButton);
+			
+			}
+			public void clickOnNewProduct() {
+				pageutility.clickOnAnElement(newproduct);
+			}
+			public void clickOnDelete() {
+				pageutility.clickOnAnElement(delete);
+				pageutility.acceptAlert(driver);
 			}
 			
 			public boolean DeleteManagedProduct() {
-				newproduct.click();
-				delete.click();
-				driver.switchTo().alert().accept();
 				return alertdismissable.isDisplayed();
 				
 			}

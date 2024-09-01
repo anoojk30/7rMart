@@ -5,7 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class LoginPage{
+	PageUtility pageutility=new PageUtility();
 	WebDriver driver;
 	public LoginPage(WebDriver driver)//to convert local method to instance method
 	{
@@ -20,18 +23,21 @@ public class LoginPage{
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")WebElement loginalert;
 	
 	public void enterUsernameOnUsernameField(String username) {
-		usernameField.sendKeys(username);
+		pageutility.enterValueIntoElement(usernameField, username);
+		
 		
 		 
 	}
 	
 	public void enterPasswordOnPasswordField(String password) {
-		passwordField.sendKeys(password);
+		//passwordField.sendKeys(password);
+		pageutility.enterValueIntoElement(passwordField, password);
 		
 	}
 	
 	public void clickOnSignInButton() {
-		loginButton.click();
+		//loginButton.click();
+		pageutility.clickOnAnElement(loginButton);
 		
 	}
 	
