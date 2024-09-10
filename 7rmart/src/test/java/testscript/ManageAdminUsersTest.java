@@ -6,32 +6,33 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import pages.AdminUsers;
+import constants.Constants;
+import pages.AdminUserPage;
+import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class ManageAdminUsersTest extends Base {
-	@Test
-	
-	public void VerifyWhetherAdminUserIsAbleToUpdateData() throws IOException {
-		//String username="admin";
-		//String password="admin";
+	@Test(description="The testcase verify whether user can create a new Admin User")
+	public void VerifyWhetherAdminCanChangeLockStatus() throws IOException {
+		
 		String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(1, 1, "LoginPage");
-		String username1=ExcelUtility.getStringData(1, 0, "AdminUsers");
-		String password1=ExcelUtility.getStringData(1, 1, "AdminUsers");
+		String adminuser=ExcelUtility.getStringData(1, 0, "AdminUsers");
+		String adminpassword=ExcelUtility.getStringData(1, 1, "AdminUsers");
 		String UserType1=ExcelUtility.getStringData(1, 2, "AdminUsers");
-		AdminUsers adminusers = new AdminUsers(driver);
-		adminusers.enterUsernameOnUsernameField(username);
-		adminusers.enterPasswordOnPasswordField(password);
-		adminusers.clickOnSignInButton();
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
+		
+		AdminUserPage adminusers = new AdminUserPage(driver);
+		
 		adminusers.clickOnAdminUser();
 		adminusers.clickOnNewUser();
-		adminusers.enterUsername(username1);
-		adminusers.enterPassword(password1);
+		adminusers.enterUsername(adminuser);
+		adminusers.enterPassword(adminpassword);
 		adminusers.selectUserType(UserType1);
 		adminusers.saveData();
 		boolean alert = adminusers.AlertMessageisDisplayed();
-		assertTrue(alert,"Admin User data is not saved when user enters invalid details and save");	
+		assertTrue(alert,Constants.ErrorAdminUserId);	
 	}
 		
 }

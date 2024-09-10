@@ -7,9 +7,9 @@
 </listeners>
   <test thread-count="5" name="TestNG.xml">
     <classes>
-      <class name="testscript.LoginTest">
+      <class name="testscript.ManageAdminUsersTest">
       <methods> 
-		<include name="verifyTheUserIsAbleToLoginUsinginvalidCredentials2"></include>
+		<include name="VerifyWhetherAdminCanChangeLockStatus"></include>
 	  </methods>
 	  </class>
     </classes>

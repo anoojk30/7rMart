@@ -7,65 +7,52 @@ import java.io.IOException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import constants.Constants;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
-	@Test(groups = {"Regression"})//groups= {"Smoke"}
+	@Test(groups = {"Regression"},description="verify that user is able to login with valid credential")//groups= {"Smoke"}
 	
 	public void verifyTheUserIsAbleToLoginUsingvalidCredentials() throws IOException {
-		//String username = "admin";
-		//String password = "admin";
+	
 		String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(1, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		boolean ishomepageloaded = loginpage.isHomePageLoaded();
-		assertTrue(ishomepageloaded,"Homepage is loaded when user enters valid credentials");	
+		assertTrue(ishomepageloaded,Constants.ErrorLogin);	
 	}
-	@Test(retryAnalyzer=retry.Retry.class,description="verify that user is not able to login with invalid credential")
+	@Test(retryAnalyzer=retry.Retry.class,description="verify that user is not able to login with invalid username and Valid Password")
 	
-	public void verifyTheUserIsAbleToLoginUsinginvalidCredentials() throws IOException {
-		//String username = "admin";
-		//String password = "password";
+	public void verifyTheUserIsAbleToLoginUsinginvalidUsernameAndValidPassword() throws IOException {
+		
 		String username=ExcelUtility.getStringData(2, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(2, 5, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		boolean isAlertMessageDisplayed = loginpage.isAlertMessageDisplayed();
-		assertTrue(isAlertMessageDisplayed,"Homepage is not loaded when user enters valid credentials");	
+		assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);	
 	}
-	@Test
+	@Test(retryAnalyzer = retry.Retry.class,description="verify that user is not able to login with invalid username and invalid password")
 	
-	public void verifyTheUserIsAbleToLoginUsinginvalidCredentialss() throws IOException {
-		//String username = "admin";
-		//String password = "admins";
+	public void VerifyWhetherUserIsAbleToLoginUsingValidUsernameAndInvalidPassword() throws IOException {
+	
 		String username=ExcelUtility.getStringData(3, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(3, 1, "LoginPage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		boolean isAlertMessageDisplayed = loginpage.isAlertMessageDisplayed();
-		assertTrue(isAlertMessageDisplayed,"Homepage is not loaded when user enters valid credentials");	
+		assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);	
 	}
-@Test(dataProvider = "LoginProvider")
+@Test(retryAnalyzer = retry.Retry.class,description="verify that user is not able to login with invalid credential",dataProvider = "LoginProvider")
 	
-	public void verifyTheUserIsAbleToLoginUsinginvalidCredentials2(String username, String password) throws IOException {
-		//String username = "admins";
-		//String password = "admins";
-	//String username=ExcelUtility.getStringData(4, 0, "LoginPage");
-	//String password=ExcelUtility.getStringData(4, 1, "LoginPage");
+	public void VerifyWhetherUserIsAbleToLoginUsingInvalidUsernameAndInvalidPassword(String username, String password) throws IOException {
+
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickOnSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		boolean isAlertMessageDisplayed = loginpage.isAlertMessageDisplayed();
-		assertTrue(isAlertMessageDisplayed,"Homepage is not loaded when user enters valid credentials");	
+		assertTrue(isAlertMessageDisplayed,Constants.ErrorIncorrectLogin);	
 	}
 @DataProvider(name = "LoginProvider")
 public Object[][] getDataFromTestData() throws IOException {

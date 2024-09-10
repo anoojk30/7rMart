@@ -14,21 +14,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-import constant.Constants;
+import constants.Constants;
 import utilities.ScreenshotUtility;
 
 public class Base {
-	
+	public WebDriver driver;
 	public Properties properties;
 	public FileInputStream fileinputstream;
-	
-	public WebDriver driver;
 	public ScreenshotUtility screenshot;
 	@BeforeMethod(alwaysRun=true)
-	@Parameters ("browser")
-	public void intializeBrowser(String browser) throws Exception
+	@Parameters("browser")
 	
-	{
+	
+	public void initialiseBrowser(String browser) throws Exception {
 		try {
 			properties = new Properties();
 			fileinputstream = new FileInputStream(Constants.CONFIGFILE);
@@ -38,28 +36,27 @@ public class Base {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-	if (browser.equalsIgnoreCase("Chrome"))
-	{
-		driver= new ChromeDriver();
-}
-else if(browser.equalsIgnoreCase("Edge"))
-	
-	{
-	driver= new EdgeDriver();//browser intialization
+		if(browser.equalsIgnoreCase("Chrome")) {
+			driver = new ChromeDriver();
+		}
+		
+		else if(browser.equalsIgnoreCase("Edge")) {
+			driver = new EdgeDriver();
+		}
+		
+		else if(browser.equalsIgnoreCase("Firefox")) {
+			driver = new FirefoxDriver();
+		}
+		
+		else {
+			throw new Exception("Incorrect Browser");
+		}
+		
+		driver.get(properties.getProperty("url"));
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
-else if(browser.equalsIgnoreCase("Firefox"))
-{
-	driver =new FirefoxDriver();
-}
-else {
-	throw new Exception("Incorrect Browser");
-}
-	driver.get(properties.getProperty("url"));
-	//driver.get("https://groceryapp.uniqassosiates.com/admin");//launching the URL
-	driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-}
-
+	
 	@AfterMethod(alwaysRun=true)
 	public void browserQuit(ITestResult iTestResult) throws IOException {
 		if(iTestResult.getStatus()== ITestResult.FAILURE) {

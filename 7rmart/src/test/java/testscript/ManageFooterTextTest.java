@@ -6,11 +6,13 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import pages.ManageFooterText;
+import constants.Constants;
+import pages.LoginPage;
+import pages.ManageFooterTextPage;
 import utilities.ExcelUtility;
 
 public class ManageFooterTextTest extends Base{
-	@Test
+	@Test(retryAnalyzer = retry.Retry.class,description="This test case is used to verify whether user is able to add a footer text details")
 	
 	
 	public void VerifyWhetherUserIsAbleToUpdateFooterText() throws IOException
@@ -22,10 +24,12 @@ public class ManageFooterTextTest extends Base{
 		String emailid=ExcelUtility.getStringData(1, 1, "FooterText");
 		String phonenumber = ExcelUtility.getIntegerData(1, 2, "FooterText");
 		System.out.println(phonenumber);
-		ManageFooterText managefootertext=new ManageFooterText(driver);
-		managefootertext.enterUsernameOnUsernameField(username);
-		managefootertext.enterPasswordOnPasswordField(password);
-		managefootertext.clickOnSignInButton();
+		
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
+		
+		ManageFooterTextPage managefootertext=new ManageFooterTextPage(driver);
+		
 		managefootertext.clickOnFooterText();
 		managefootertext.clickonNewClick();
 		managefootertext.clickonAddressField(address);
@@ -35,7 +39,7 @@ public class ManageFooterTextTest extends Base{
 		
 		
 	boolean alert = managefootertext.isAlertMessageDisplayed();
-	assertTrue(alert,"Footertext is not saved when user enters invalid details and save");
+	assertTrue(alert,Constants.ErrorManageFooter);
 	
 			
 	}

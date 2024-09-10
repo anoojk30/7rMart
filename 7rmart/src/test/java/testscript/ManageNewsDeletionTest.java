@@ -4,22 +4,26 @@ import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
+import constants.Constants;
+import pages.LoginPage;
 import pages.ManageNewsDeletion;
 
 public class ManageNewsDeletionTest extends Base {
-	@Test
+	@Test(retryAnalyzer = retry.Retry.class,description="This Test case is used to verify whether user is able to delete the news")
 	
-	public void VerifyWhetherUserIsAbleToAddNews() {
+	public void VerifyWhetherUserIsAbleToDeleteNews() {
 		String username="admin";
 		String password="admin";
+		
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
+		
 		ManageNewsDeletion managenewsdeletion = new ManageNewsDeletion(driver);
-		managenewsdeletion.enterUsernameOnUsernameField(username);
-		managenewsdeletion.enterPasswordOnPasswordField(password);
-		managenewsdeletion.clickOnSignInButton();
+		
 		managenewsdeletion.clickOnManageNews();
 		managenewsdeletion.clickonDeleteNews();
 		boolean newsalert = managenewsdeletion.IsAlertDisplayed();
-		assertTrue(newsalert,"News is not saved when user enters invalid details and save");	
+		assertTrue(newsalert,Constants.ErrorManageDeleteNews);	
 	}
 		
 	}

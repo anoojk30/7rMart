@@ -7,18 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class ManageContact {
+public class ManageContactPage {
 
 		
 		WebDriver driver;
 		PageUtility pageutility=new PageUtility();
-		public ManageContact(WebDriver driver)	{
+		public ManageContactPage(WebDriver driver)	{
 			this.driver=driver;
 			PageFactory.initElements(driver, this);
 		}
-			@FindBy(xpath="//input[@type='text']") WebElement usernameField;
-			@FindBy(xpath="//input[@type='password']") WebElement passwordField;
-			@FindBy(xpath="//button[@type='submit']") WebElement loginButton;
+			
 			@FindBy(xpath="//a[contains(@href,'list-contact') and @class='small-box-footer']") WebElement contactusers;
 			@FindBy(xpath="//a[@class='btn btn-sm btn btn-primary btncss']") WebElement action;
 			@FindBy(xpath="//input[@id='phone']") WebElement phone;
@@ -28,21 +26,7 @@ public class ManageContact {
 			@FindBy(xpath="//input[@id='del_limit']") WebElement deliverylimit;
 			@FindBy(xpath="//button[@name='Update']") WebElement update;
 			@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;
-			public void enterUserNameOnUserNameField(String username)
-			{
-				//usernameField.sendKeys(username);
-				pageutility.enterValueIntoElement(usernameField, username);
-			}
-			public void enterPasswordOnPasswordField(String password)
-			{
-				//passwordField.sendKeys(password);
-				pageutility.enterValueIntoElement(passwordField, password);
-			}
-			public void clickOnLoginButton()
-			{
-				//loginButton.click();
-				pageutility.clickOnAnElement(loginButton);
-			}
+			
 			public void clickOnContactUser() {
 				pageutility.clickOnAnElement(contactusers);
 				}

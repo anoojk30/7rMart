@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class SubCategory {
+public class SubCategoryPage {
 	
 	WebDriver driver;
 	PageUtility pageutility=new PageUtility();
-	public SubCategory(WebDriver driver)	{
+	public SubCategoryPage(WebDriver driver)	{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -24,14 +24,12 @@ public class SubCategory {
 		
 		
 		public void enterUsernameOnUsernameField(String username) {
-			//usernameField.sendKeys(username);
 			pageutility.enterValueIntoElement(usernameField, username);
 			
 			 
 		}
 		
 		public void enterPasswordOnPasswordField(String password) {
-			//passwordField.sendKeys(password);
 			pageutility.enterValueIntoElement(passwordField, password);
 			
 		}
@@ -47,8 +45,6 @@ public class SubCategory {
 			pageutility.clickOnAnElement(active);
 		}
 		public boolean AlertMessageisDisplayed() {
-			//subcategory.click();
-			//active.click();
 			return alert.isDisplayed();
 			
 			

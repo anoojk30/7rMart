@@ -49,5 +49,13 @@ public class PageUtility {
 		Select select = new Select(element);
 		select.selectByVisibleText(visibletext);
 	}
-
+	public boolean isAlertDisplay(WebElement element) {
+		return element.isDisplayed();
+	}
+	public boolean isAlertSelected(WebElement element) {
+		return element.isSelected();
+	}
+	public boolean isAlertEnabled(WebElement element) {
+		return element.isEnabled();
+}
 }

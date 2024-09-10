@@ -5,24 +5,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import constant.Constants;
+import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.PageUtility;
 
-public class ManageCategory {
+public class ManageCategoryPage {
 	
 	WebDriver driver;
 	PageUtility pageutility=new PageUtility();
 	FileUploadUtility fileuploadutility=new FileUploadUtility();
 	
-	public ManageCategory(WebDriver driver)
+	public ManageCategoryPage(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver , this);
 	}
-	@FindBy(xpath="//input[@type='text']") WebElement usernameField;
-	@FindBy(xpath="//input[@type='password']") WebElement passwordField;
-	@FindBy(xpath="//button[@type='submit']") WebElement loginButton;
+	
 	@FindBy(xpath="//a[contains(@href,'list-category') and @class='small-box-footer']") WebElement manageCategory;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newclick;
 	@FindBy(xpath="//input[@id='category']") WebElement category;
@@ -32,23 +30,8 @@ public class ManageCategory {
 	@FindBy(xpath="//button[text()='Save']") WebElement save;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;
 	
-	public void enterUsernameOnUsernameField(String username) {
-		//usernameField.sendKeys(username);
-		pageutility.enterValueIntoElement(usernameField, username);
-		
-		 
-	}
 	
-	public void enterPasswordOnPasswordField(String password) {
-		//passwordField.sendKeys(password);
-		pageutility.enterValueIntoElement(passwordField, password);
-		
-	}
 	
-	public void clickOnSignInButton() {
-		pageutility.clickOnAnElement(loginButton);
-	
-	}
 	public void clickOnManageCategory() {
 		pageutility.clickOnAnElement(manageCategory);
 	}

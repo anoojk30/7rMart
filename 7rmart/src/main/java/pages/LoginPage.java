@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class LoginPage{
 	PageUtility pageutility=new PageUtility();
@@ -22,30 +23,33 @@ public class LoginPage{
 	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']") WebElement adminImage;
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")WebElement loginalert;
 	
-	public void enterUsernameOnUsernameField(String username) {
+	public LoginPage enterUsernameOnUsernameField(String username) {
 		pageutility.enterValueIntoElement(usernameField, username);
-		
+		return this;
 		
 		 
 	}
 	
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 		//passwordField.sendKeys(password);
 		pageutility.enterValueIntoElement(passwordField, password);
+		return this;
 		
 	}
 	
-	public void clickOnSignInButton() {
-		//loginButton.click();
+	public LoginPage clickOnSignInButton() {
+		WaitUtility waitutility=new WaitUtility();
+		waitutility.waitForElementToBeClickable(driver, loginButton);
 		pageutility.clickOnAnElement(loginButton);
+		return this;
 		
 	}
 	
 	public boolean isHomePageLoaded() {
-		return adminImage.isDisplayed();
+		return pageutility.isAnElementDisplayed(adminImage);
 	}
 	public boolean isAlertMessageDisplayed() {
-		return loginalert.isDisplayed();
+		return pageutility.isAlertDisplay(loginalert); 
 	}
 
 }

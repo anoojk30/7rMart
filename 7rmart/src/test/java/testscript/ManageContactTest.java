@@ -6,12 +6,14 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import pages.ManageContact;
+import constants.Constants;
+import pages.LoginPage;
+import pages.ManageContactPage;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends Base {
 	
-	@Test
+	@Test(retryAnalyzer = retry.Retry.class,description="This testcase is used to verify whether user is able to add a contact us information")
 	
 	public void VerifyWhetherUserIsAbleToUpdateContactDetails() throws IOException
 	{
@@ -25,11 +27,11 @@ public class ManageContactTest extends Base {
 		String deliverytimee=ExcelUtility.getIntegerData(1, 2, "ManageContact");
 		System.out.println(deliverytimee);
 		String deliverylimitt=ExcelUtility.getStringData(1,3, "ManageContact");
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		
-	ManageContact managecontact=new ManageContact(driver);
-	managecontact.enterUserNameOnUserNameField(username);
-	managecontact.enterPasswordOnPasswordField(password);
-	managecontact.clickOnLoginButton();
+	ManageContactPage managecontact=new ManageContactPage(driver);
+
 	managecontact.clickOnContactUser();
 	managecontact.clickOnAction();
 	managecontact.enterPhoneNumber(phonenumber);
@@ -40,7 +42,7 @@ public class ManageContactTest extends Base {
 	managecontact.clickUpdate();
 	
 	boolean alert = managecontact.AlertMessageisDisplayed();
-	assertTrue(alert,"Contact User data is not saved when user enters invalid details and save");
+	assertTrue(alert,Constants.ErrorManageContact);
 	
 			
 	
