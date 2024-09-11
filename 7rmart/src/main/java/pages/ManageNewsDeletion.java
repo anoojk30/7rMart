@@ -21,15 +21,17 @@ public class ManageNewsDeletion {
 		
 		
 	
-		public void clickOnManageNews() {
+		public ManageNewsDeletion clickOnManageNews() {
 			pageutility.clickOnAnElement(newnews);
+			return this;
 		}
-		public void clickonDeleteNews() {
+		public ManageNewsDeletion clickonDeleteNews() {
 			pageutility.clickOnAnElement(deletenews);
 			pageutility.acceptAlert(driver);
+			return this;
 		}
 		public boolean IsAlertDisplayed() {
-			return newsalert.isDisplayed();
+			return pageutility.isAlertDisplay(newsalert);
 			
 		}
 

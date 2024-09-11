@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results retried="2" ignored="2" total="5" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-10T23:32:27 IST" name="Suite" finished-at="2024-09-10T23:32:44 IST" duration-ms="16925">
+  <suite started-at="2024-09-12T00:01:27 IST" name="Suite" finished-at="2024-09-12T00:02:27 IST" duration-ms="60463">
     <groups>
     </groups>
-    <test started-at="2024-09-10T23:32:27 IST" name="TestNG.xml" finished-at="2024-09-10T23:32:44 IST" duration-ms="16925">
-      <class name="testscript.ManageAdminUsersTest">
-        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageAdminUsersTest@c05fddc]" started-at="2024-09-10T23:32:27 IST" name="initialiseBrowser" finished-at="2024-09-10T23:32:39 IST" duration-ms="11695" status="PASS">
+    <test started-at="2024-09-12T00:01:27 IST" name="TestNG.xml" finished-at="2024-09-12T00:02:27 IST" duration-ms="60463">
+      <class name="testscript.ManageCategoryTest">
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:01:27 IST" name="initialiseBrowser" finished-at="2024-09-12T00:01:37 IST" duration-ms="9829" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,22 +18,230 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialiseBrowser -->
-        <test-method signature="VerifyWhetherAdminCanChangeLockStatus()[pri:0, instance:testscript.ManageAdminUsersTest@c05fddc]" started-at="2024-09-10T23:32:39 IST" name="VerifyWhetherAdminCanChangeLockStatus" description="The testcase is used to verify whether user can lock and unlock the user to active and inactive state" finished-at="2024-09-10T23:32:44 IST" duration-ms="4539" status="PASS">
+        <test-method retried="true" signature="VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:01:37 IST" name="VerifyWhetherUserIsAbleToUpdateManageCategory" description="This Test case is used to verify whether user is able to add a new category" finished-at="2024-09-12T00:01:52 IST" duration-ms="15726" status="SKIP">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64397}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64397/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 36dfb9a3336d5c7456cb5476cc549b7a]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64397}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64397/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 36dfb9a3336d5c7456cb5476cc549b7a
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at utilities.WaitUtility.waitForAlertToBeVisible(WaitUtility.java:19)
+at pages.ManageCategoryPage.isAlertDisplayed(ManageCategoryPage.java:68)
+at testscript.ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory(ManageCategoryTest.java:34)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyWhetherAdminCanChangeLockStatus -->
-        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageAdminUsersTest@c05fddc]" started-at="2024-09-10T23:32:44 IST" name="browserQuit" finished-at="2024-09-10T23:32:44 IST" duration-ms="592" status="PASS">
+        </test-method> <!-- VerifyWhetherUserIsAbleToUpdateManageCategory -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:01:52 IST" name="browserQuit" finished-at="2024-09-12T00:01:53 IST" duration-ms="404" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyWhetherAdminCanChangeLockStatus status=SUCCESS method=ManageAdminUsersTest.VerifyWhetherAdminCanChangeLockStatus()[pri:0, instance:testscript.ManageAdminUsersTest@c05fddc] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyWhetherUserIsAbleToUpdateManageCategory status=SKIP method=ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserQuit -->
-      </class> <!-- testscript.ManageAdminUsersTest -->
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:01:53 IST" name="initialiseBrowser" finished-at="2024-09-12T00:01:56 IST" duration-ms="3047" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialiseBrowser -->
+        <test-method retried="true" signature="VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:01:56 IST" name="VerifyWhetherUserIsAbleToUpdateManageCategory" description="This Test case is used to verify whether user is able to add a new category" finished-at="2024-09-12T00:02:10 IST" duration-ms="13678" status="SKIP">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64428}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64428/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1f81c3d7332b9bf8acef513c9de601f5]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64428}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64428/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 1f81c3d7332b9bf8acef513c9de601f5
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at utilities.WaitUtility.waitForAlertToBeVisible(WaitUtility.java:19)
+at pages.ManageCategoryPage.isAlertDisplayed(ManageCategoryPage.java:68)
+at testscript.ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory(ManageCategoryTest.java:34)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:248)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:62)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyWhetherUserIsAbleToUpdateManageCategory -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:02:10 IST" name="browserQuit" finished-at="2024-09-12T00:02:10 IST" duration-ms="763" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyWhetherUserIsAbleToUpdateManageCategory status=SKIP method=ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+        <test-method is-config="true" signature="initialiseBrowser(java.lang.String)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:02:10 IST" name="initialiseBrowser" finished-at="2024-09-12T00:02:13 IST" duration-ms="2739" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialiseBrowser -->
+        <test-method signature="VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:02:13 IST" name="VerifyWhetherUserIsAbleToUpdateManageCategory" description="This Test case is used to verify whether user is able to add a new category" finished-at="2024-09-12T00:02:27 IST" duration-ms="13631" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64457}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64457/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 65e60aacd715f44c5f47fb92ab8e2365]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 128.0.6613.120, chrome: {chromedriverVersion: 128.0.6613.137 (fe621c5aa2d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64457}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64457/devtoo..., se:cdpVersion: 128.0.6613.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 65e60aacd715f44c5f47fb92ab8e2365
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at utilities.WaitUtility.waitForAlertToBeVisible(WaitUtility.java:19)
+at pages.ManageCategoryPage.isAlertDisplayed(ManageCategoryPage.java:68)
+at testscript.ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory(ManageCategoryTest.java:34)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:248)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:62)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyWhetherUserIsAbleToUpdateManageCategory -->
+        <test-method is-config="true" signature="browserQuit(org.testng.ITestResult)[pri:0, instance:testscript.ManageCategoryTest@c05fddc]" started-at="2024-09-12T00:02:27 IST" name="browserQuit" finished-at="2024-09-12T00:02:27 IST" duration-ms="512" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyWhetherUserIsAbleToUpdateManageCategory status=FAILURE method=ManageCategoryTest.VerifyWhetherUserIsAbleToUpdateManageCategory()[pri:0, instance:testscript.ManageCategoryTest@c05fddc] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserQuit -->
+      </class> <!-- testscript.ManageCategoryTest -->
     </test> <!-- TestNG.xml -->
   </suite> <!-- Suite -->
 </testng-results>

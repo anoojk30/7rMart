@@ -51,11 +51,10 @@ public class AdminUserPage {
 			pageutility.selectDropDownByVisibleText(usertype, userType1);
 			return this;
 		}
-		public AdminUserPage saveData() {
-			pageutility.clickOnAnElement(save);
-			return this;
+		public ManageContactPage clickUpdate() {
+			pageutility.javaSriptClick(driver, save);
+			return new ManageContactPage(driver);
 		}
-		
 		
 		
 		public boolean AlertMessageisDisplayed() {

@@ -30,12 +30,7 @@ public class ManageFooterTextTest extends Base{
 		
 		ManageFooterTextPage managefootertext=new ManageFooterTextPage(driver);
 		
-		managefootertext.clickOnFooterText();
-		managefootertext.clickonNewClick();
-		managefootertext.clickonAddressField(address);
-		managefootertext.clickonEmailField(emailid);
-		managefootertext.clickonPhoneNumber(phonenumber);
-		managefootertext.clickonUpdateButton();
+		managefootertext.clickOnFooterText().clickonNewClick().clickonAddressField(address).clickonEmailField(emailid).clickonPhoneNumber(phonenumber).clickonUpdateButton();
 		
 		
 	boolean alert = managefootertext.isAlertMessageDisplayed();

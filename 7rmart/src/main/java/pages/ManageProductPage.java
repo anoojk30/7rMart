@@ -21,16 +21,19 @@ public class ManageProductPage{
 			
 			
 		
-			public void clickOnNewProduct() {
+			public ManageProductPage clickOnNewProduct() {
 				pageutility.clickOnAnElement(newproduct);
+				return this;
 			}
-			public void clickOnDelete() {
+			public ManageProductPage clickOnDelete() {
 				pageutility.clickOnAnElement(delete);
 				pageutility.acceptAlert(driver);
+				return this;
 			}
 			
 			public boolean DeleteManagedProduct() {
-				return alertdismissable.isDisplayed();
+				return pageutility.isAlertDisplay(alertdismissable);
+				
 				
 			}
 			

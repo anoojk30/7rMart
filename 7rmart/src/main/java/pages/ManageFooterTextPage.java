@@ -27,27 +27,33 @@ public class ManageFooterTextPage {
 	
 	
 	
-	public void clickOnFooterText() {
+	public ManageFooterTextPage clickOnFooterText() {
 		pageutility.clickOnAnElement(footertext);
+		return this;
 	}
-	public void clickonNewClick() {
+	public ManageFooterTextPage clickonNewClick() {
 		pageutility.clickOnAnElement(newclick);
+		return this;
 		
 	}
-	public void clickonAddressField(String address) {
+	public ManageFooterTextPage clickonAddressField(String address) {
 		pageutility.clearATextField(addressfield);
 		pageutility.enterValueIntoElement(addressfield, address);
+		return this;
 	}
-	public void clickonEmailField(String emailid) {
+	public ManageFooterTextPage clickonEmailField(String emailid) {
 		pageutility.clearATextField(emailfield);
 		pageutility.enterValueIntoElement(emailfield, emailid);
+		return this;
 	}
-	public void  clickonPhoneNumber(String phonenumber) {
+	public ManageFooterTextPage  clickonPhoneNumber(String phonenumber) {
 		pageutility.clearATextField(phonefield);
 		pageutility.enterValueIntoElement(phonefield,phonenumber);
+		return this;
 	}
-	public void clickonUpdateButton() {
+	public ManageFooterTextPage clickonUpdateButton() {
 		pageutility.clickOnAnElement(update);
+		return this;
 	}
 	public boolean isAlertMessageDisplayed() {
 		return pageutility.isAnElementDisplayed(alert);

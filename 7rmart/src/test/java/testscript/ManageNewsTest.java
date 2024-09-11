@@ -24,8 +24,8 @@ public class ManageNewsTest extends Base {
 		
 		ManageNewsPage managenews = new ManageNewsPage(driver);
 		
-		managenews.clickOnNewNews();
-		managenews.addNews();
+		managenews.clickOnNewNews().addNews().enterNews(news).saveNews();
+	
 		managenews.enterNews(news);
 		managenews.saveNews();
 		boolean newsalert = managenews.AlertMessageDisplayed();

@@ -24,20 +24,24 @@ public class ManageNewsPage {
 		
 			
 		
-		public void clickOnNewNews() {
+		public ManageNewsPage clickOnNewNews() {
 			pageutility.clickOnAnElement(newnews);
+			return this;
 		}
-public void addNews() {
+public ManageNewsPage addNews() {
 	pageutility.clickOnAnElement(addnews);
+	return this;
 }
-public void enterNews(String news) {
+public ManageNewsPage enterNews(String news) {
 	pageutility.enterValueIntoElement(enternews, news);
+	return this;
 }
-public void saveNews() {
+public ManageNewsPage saveNews() {
 	pageutility.javaSriptClick(driver, save);
+	return this;
 }
 		public boolean AlertMessageDisplayed() {
-			return newsalert.isDisplayed();
+			return pageutility.isAlertDisplay(newsalert);
 			
 		}
 		

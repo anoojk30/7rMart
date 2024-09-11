@@ -7,9 +7,9 @@
 </listeners>
   <test thread-count="5" name="TestNG.xml">
     <classes>
-      <class name="testscript.ManageAdminUsersTest">
+      <class name="testscript.ManageCategoryTest">
       <methods> 
-		<include name="VerifyWhetherAdminCanChangeLockStatus"></include>
+		<include name="VerifyWhetherUserIsAbleToUpdateManageCategory"></include>
 	  </methods>
 	  </class>
     </classes>

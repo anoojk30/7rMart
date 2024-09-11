@@ -20,8 +20,8 @@ public class ManageNewsDeletionTest extends Base {
 		
 		ManageNewsDeletion managenewsdeletion = new ManageNewsDeletion(driver);
 		
-		managenewsdeletion.clickOnManageNews();
-		managenewsdeletion.clickonDeleteNews();
+		managenewsdeletion.clickOnManageNews().clickonDeleteNews();
+	
 		boolean newsalert = managenewsdeletion.IsAlertDisplayed();
 		assertTrue(newsalert,Constants.ErrorManageDeleteNews);	
 	}

@@ -23,8 +23,8 @@ public class ManageProductTest extends Base {
 			loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 			
 			ManageProductPage manageproduct = new ManageProductPage(driver);
-			manageproduct.clickOnNewProduct();
-			manageproduct.clickOnDelete();
+			manageproduct.clickOnNewProduct().clickOnDelete();
+			
 			boolean alertdismissable = manageproduct.DeleteManagedProduct();
 			assertTrue(alertdismissable,Constants.ErrorManageDeleteNews);	
 		}

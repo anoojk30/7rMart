@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class LogoutPage {
 	PageUtility pageutility=new PageUtility();
@@ -21,17 +22,21 @@ public class LogoutPage {
 	@FindBy(xpath="//a[contains(@href,'logout') and @class='dropdown-item']") WebElement logout;
 	@FindBy(xpath="//button[text()='Sign In']") WebElement signin;
 	
-	public void clickOnAdminButton() {
+	public LogoutPage clickOnAdminButton() {
 		pageutility.clickOnAnElement(admin);
+		return this;
 	
 	}
-	public void clickOnLogoutButton() {
+	public LogoutPage clickOnLogoutButton() {
+		WaitUtility waitutility=new WaitUtility();
+		waitutility.waitForElementToBeClickable(driver, logout);
 		pageutility.clickOnAnElement(logout);
+		return this;
 	
 	}
 	public boolean signOutIsDisplayed()
 	{
-		return signin.isDisplayed();
+		return pageutility.isAlertDisplay(signin);
 	}
 
 }

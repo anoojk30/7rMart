@@ -7,45 +7,32 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.PageUtility;
 
-public class SubCategoryPage {
+public class ManageSubCategoryPage {
 	
 	WebDriver driver;
 	PageUtility pageutility=new PageUtility();
-	public SubCategoryPage(WebDriver driver)	{
+	public ManageSubCategoryPage(WebDriver driver)	{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
-		@FindBy(xpath="//input[@type='text']") WebElement usernameField;
-		@FindBy(xpath="//input[@type='password']") WebElement passwordField;
-		@FindBy(xpath="//button[@type='submit']") WebElement loginButton;
+		
 		@FindBy(xpath="//a[contains(@href,'sub-category') and @class='small-box-footer']") WebElement subcategory;
 		@FindBy(xpath="//span[contains(@class,'badge bg-')]") WebElement  active;
 		@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement  alert;
 		
 		
-		public void enterUsernameOnUsernameField(String username) {
-			pageutility.enterValueIntoElement(usernameField, username);
-			
-			 
-		}
-		
-		public void enterPasswordOnPasswordField(String password) {
-			pageutility.enterValueIntoElement(passwordField, password);
-			
-		}
-		
-		public void clickOnSignInButton() {
-			pageutility.clickOnAnElement(loginButton);
-		
-		}
-		public void clickSubcategory() {
+
+	
+		public ManageSubCategoryPage clickSubcategory() {
 			pageutility.clickOnAnElement(subcategory);
+			return this;
 		}
-		public void clickOnActive() {
+		public ManageSubCategoryPage clickOnActive() {
 			pageutility.clickOnAnElement(active);
+			return this;
 		}
 		public boolean AlertMessageisDisplayed() {
-			return alert.isDisplayed();
+			return pageutility.isAlertDisplay(alert);
 			
 			
 		}

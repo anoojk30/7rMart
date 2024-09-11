@@ -13,7 +13,7 @@ import utilities.ExcelUtility;
 
 public class ManageAdminUsersTest extends Base {
 	@Test(description="The testcase verify whether user can create a new Admin User")
-	public void VerifyWhetherAdminCanChangeLockStatus() throws IOException {
+	public void VerifyWhetherUserCanCreateNewAdminUser() throws IOException {
 		
 		String username=ExcelUtility.getStringData(1, 0, "LoginPage");
 		String password=ExcelUtility.getStringData(1, 1, "LoginPage");
@@ -25,12 +25,8 @@ public class ManageAdminUsersTest extends Base {
 		
 		AdminUserPage adminusers = new AdminUserPage(driver);
 		
-		adminusers.clickOnAdminUser();
-		adminusers.clickOnNewUser();
-		adminusers.enterUsername(adminuser);
-		adminusers.enterPassword(adminpassword);
-		adminusers.selectUserType(UserType1);
-		adminusers.saveData();
+		adminusers.clickOnAdminUser().clickOnNewUser().enterUsername(adminuser).enterPassword(adminpassword).selectUserType(UserType1).clickUpdate();
+		
 		boolean alert = adminusers.AlertMessageisDisplayed();
 		assertTrue(alert,Constants.ErrorAdminUserId);	
 	}

@@ -26,12 +26,8 @@ public class ManageCategoryTest extends Base {
 		
 		ManageCategoryPage managecategory=new ManageCategoryPage(driver);
 		
-		managecategory.clickOnManageCategory();
-		managecategory.clickonNewClick();
-		managecategory.clickonCategory(categories);
-		managecategory.clickonDisplay();
-		managecategory.uploadImage();
-		managecategory.clickOnSaveButton();
+		managecategory.clickOnManageCategory().clickonNewClick().clickonCategory(categories).clickonDisplay().uploadImage().clickUpdate();
+		
 		
 		
 		

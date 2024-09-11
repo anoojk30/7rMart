@@ -32,14 +32,8 @@ public class ManageContactTest extends Base {
 		
 	ManageContactPage managecontact=new ManageContactPage(driver);
 
-	managecontact.clickOnContactUser();
-	managecontact.clickOnAction();
-	managecontact.enterPhoneNumber(phonenumber);
-	managecontact.enterAddress(addresss);
-	managecontact.enterEmailId(emailid);
-	managecontact.enterDeliveryLimit(deliverylimitt);
-	managecontact.enterDeliveryTime(deliverytimee);
-	managecontact.clickUpdate();
+	managecontact.clickOnContactUser().clickOnAction().enterPhoneNumber(phonenumber).enterEmailId(emailid).enterDeliveryLimit(deliverylimitt).enterDeliveryTime(deliverytimee).clickUpdate();
+	
 	
 	boolean alert = managecontact.AlertMessageisDisplayed();
 	assertTrue(alert,Constants.ErrorManageContact);

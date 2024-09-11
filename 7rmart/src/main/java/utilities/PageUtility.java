@@ -3,6 +3,7 @@ package utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
@@ -58,4 +59,26 @@ public class PageUtility {
 	public boolean isAlertEnabled(WebElement element) {
 		return element.isEnabled();
 }
+	public void MoveToElementAction(WebDriver driver, WebElement drag) {
+		Actions action = new Actions(driver);
+		action.moveToElement(drag);
+	}
+
+	public void rightClickAction(WebDriver driver, WebElement drag) {
+		Actions action = new Actions(driver);
+		action.contextClick(drag);
+
+	}
+
+	public void doubleClickAction(WebDriver driver, WebElement drag) {
+		Actions action = new Actions(driver);
+		action.doubleClick(drag);
+
+	}
+
+	public void dragAndDropAction(WebDriver driver, WebElement drag, WebElement drop) {
+		Actions action = new Actions(driver);
+		action.dragAndDrop(drag, drop);
+
+	}
 }

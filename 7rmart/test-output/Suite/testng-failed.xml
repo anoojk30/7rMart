@@ -7,13 +7,13 @@
   </listeners>
   <test thread-count="5" name="TestNG.xml(failed)">
     <classes>
-      <class name="testscript.ManageAdminUsersTest">
+      <class name="testscript.ManageCategoryTest">
         <methods>
-          <include name="VerifyWhetherAdminUserIsAbleToUpdateData"/>
           <include name="initialiseBrowser"/>
+          <include name="VerifyWhetherUserIsAbleToUpdateManageCategory"/>
           <include name="browserQuit"/>
         </methods>
-      </class> <!-- testscript.ManageAdminUsersTest -->
+      </class> <!-- testscript.ManageCategoryTest -->
     </classes>
   </test> <!-- TestNG.xml(failed) -->
 </suite> <!-- Failed suite [Suite] -->

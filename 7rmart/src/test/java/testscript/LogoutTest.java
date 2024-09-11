@@ -23,8 +23,8 @@ public class LogoutTest extends Base {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickOnSignInButton();
 		
 		LogoutPage logoutpage = new LogoutPage(driver);
-		logoutpage.clickOnAdminButton();
-		logoutpage.clickOnLogoutButton();
+		logoutpage.clickOnAdminButton().clickOnLogoutButton();
+		
 		boolean signout = logoutpage.signOutIsDisplayed();
 		assertTrue(signout,Constants.UserLogout);
 	}

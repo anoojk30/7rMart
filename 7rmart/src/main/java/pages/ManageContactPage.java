@@ -27,39 +27,47 @@ public class ManageContactPage {
 			@FindBy(xpath="//button[@name='Update']") WebElement update;
 			@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;
 			
-			public void clickOnContactUser() {
+			public ManageContactPage clickOnContactUser() {
 				pageutility.clickOnAnElement(contactusers);
+				return this;
 				}
-			public void clickOnAction() {
+			public ManageContactPage clickOnAction() {
 				pageutility.clickOnAnElement(action);
+				return this;
 			}
-			public void enterPhoneNumber(String phonenumber) {
+			public ManageContactPage enterPhoneNumber(String phonenumber) {
 				pageutility.clearATextField(phone);
 				pageutility.enterValueIntoElement(phone,phonenumber);
+				return this;
 				
 			}
-			public void enterEmailId(String emailid) {
+			public ManageContactPage enterEmailId(String emailid) {
 				pageutility.clearATextField(email);
 				pageutility.enterValueIntoElement(email,emailid);
+				return this;
 			}
-			public void enterAddress(String addresss) {
+			public ManageContactPage enterAddress(String addresss) {
 				pageutility.clearATextField(address);
 				pageutility.enterValueIntoElement(address,addresss);
+				return this;
 			}
-			public void enterDeliveryTime(String deliverytimee) {
+			public ManageContactPage enterDeliveryTime(String deliverytimee) {
 				pageutility.clearATextField(deliverytime);
 				pageutility.enterValueIntoElement(deliverytime,deliverytimee);
+				return this;
 			}
-			public void enterDeliveryLimit(String deliverylimitt) {
+			public ManageContactPage enterDeliveryLimit(String deliverylimitt) {
 				pageutility.clearATextField(deliverylimit);
 				pageutility.enterValueIntoElement(deliverylimit,deliverylimitt);
+				return this;
 			}
-			public void clickUpdate() {
+			public ManageContactPage clickUpdate() {
 				pageutility.javaSriptClick(driver, update);
+				return this;
 			}
 			
 			public boolean AlertMessageisDisplayed() {
-				return alert.isDisplayed();
+				return pageutility.isAlertDisplay(alert);
 				
 				
 			}

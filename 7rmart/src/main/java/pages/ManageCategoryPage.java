@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import constants.Constants;
 import utilities.FileUploadUtility;
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class ManageCategoryPage {
 	
@@ -26,37 +27,46 @@ public class ManageCategoryPage {
 	@FindBy(xpath="//input[@id='category']") WebElement category;
 	@FindBy(xpath="//li[@id='134-selectable']") WebElement displays;
 	@FindBy(xpath="//input[@id='main_img']") WebElement choosefile;
-	//@FindBy(xpath="//input[contains(@name,'top_menu') and @value='no']") WebElement topmenu;
+	@FindBy(xpath="//input[contains(@name,'top_menu') and @value='no']") WebElement topmenu;
 	@FindBy(xpath="//button[text()='Save']") WebElement save;
 	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;
 	
 	
 	
-	public void clickOnManageCategory() {
+	public ManageCategoryPage clickOnManageCategory() {
 		pageutility.clickOnAnElement(manageCategory);
+		return this;
 	}
-	public void clickonNewClick() {
+	public ManageCategoryPage clickonNewClick() {
 		pageutility.clickOnAnElement(newclick);
+		return this;
 	}
-	public void clickonCategory(String categories) {
+	public ManageCategoryPage clickonCategory(String categories) {
 		pageutility.enterValueIntoElement(category, categories);
+		return this;
 		
 	}
-	public void clickonDisplay() {
+	public ManageCategoryPage clickonDisplay() {
 		pageutility.clickOnAnElement(displays);
+		return this;
 	}
-	public void uploadImage() {
+	public ManageCategoryPage uploadImage() {
 		fileuploadutility.fileUploadUsingSendKeys(choosefile, Constants.Image);
+		return this;
 	}
-/*	public void clickOnTopMenu() {
+	public ManageCategoryPage clickOnTopMenu() {
 		pageutility.clickOnAnElement(topmenu);
-	}*/
-	public void clickOnSaveButton() {
+		return this;
+	}
+	public ManageContactPage clickUpdate() {
 		pageutility.javaSriptClick(driver, save);
+		return new ManageContactPage(driver);
 	}
 	public boolean isAlertDisplayed()
 	{
-		return alert.isDisplayed();
+		WaitUtility waitutility = new WaitUtility();
+		waitutility.waitForAlertToBeVisible(driver);
+		return pageutility.isAlertDisplay(alert);
 		
 	}
 }
